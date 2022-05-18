@@ -1,6 +1,8 @@
 :root{
     --dkclr: rgb(40, 40, 40);
+    --dkclr2: rgba(40, 40, 40, 0.15);
     --liclr: rgb(228, 228, 228);
+    --liclra: rgba(228, 228, 228, 0.357);
     --clr1:rgb(96, 26, 96);
     --clr2:rgb(212, 172, 179);
     --clr3:rgb(94, 177, 222);
@@ -104,3 +106,140 @@ html{
     border:1px var(--dkclr) solid;
 }
 
+.room{
+    width: 40rem;
+    height: 80%;
+    background-color:var(--liclr);
+    position: absolute;
+    left:50%;
+    bottom:0;
+    transform: translateX(-50%);
+    perspective: 100rem;
+    border:1px var(--dkclr) solid;
+}
+
+.room-roof{
+    width: 110%;
+    height: 20rem;
+    background-color: var(--clr2);
+    position:absolute;
+    top:-10rem;
+    left: -5%;
+    transform: rotateX(30deg);
+    box-shadow: .2rem .5rem 1.5rem var(--dkclr);
+    border-radius: .5rem .5rem .3rem .3rem;
+    border:1px var(--dkclr) solid;
+}
+
+.top-window{
+    width: 16rem;
+    height: 17rem;
+    background-color: var(--clr1);
+    position:absolute;
+    top:15rem;
+    left:50%;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 0 0 ;
+    perspective: 150rem;
+    border:.5px var(--dkclr) solid;
+}
+
+.top-window-left{
+    width: 49.5%;
+    height: 100%;
+    background-color: var(--liclra);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 50rem;
+    border:.5px var(--dkclr) solid;
+    transform-origin: left;
+    transition: transform 1s;
+}
+
+.top-window:hover .top-window-left{
+    transform:rotateY(-50deg);
+}
+
+
+.top-window-left::before{
+    content: "";
+    width: 100%;
+    height: .5rem;
+    position:absolute;
+    top:35%;
+    left: 0;
+    background-color: var(--dkclr2);
+}
+
+.top-window-right{
+    width: 49.5%;
+    height: 100%;
+    background-color: var(--liclra);
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-right-radius: 50rem;
+    transform-origin: right;
+    transition: transform 1s;
+    border:.5px var(--dkclr) solid;
+}
+
+.top-window:hover .top-window-right{
+    transform:rotateY(50deg);
+}
+
+
+.top-window-right::before{
+    content: "";
+    width: 100%;
+    height: .5rem;
+    position:absolute;
+    top:35%;
+    right: 0;
+    background-color: var(--dkclr2);
+}
+
+
+.door-frame{
+    width: 14rem;
+    height: 18rem;
+    background-color:var(--clr2);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: none;
+    border:1px black solid;
+}
+
+.door{
+    width: 100%;
+    height: 100%;
+    background-color: var(--liclra);
+    border:1px black solid;
+    transform-origin: right;
+    perspective: 100%;
+    transition: transform 1s .5s;
+}
+
+.door.change{
+    transform: rotateY(30deg);
+}
+
+.door-handle{
+    width: 3rem;
+    height: .7rem;
+    background-color:var(--dkclr);
+    position: absolute;
+    top:45%;
+    left: 1rem;
+    border-radius: 100% .5rem 100%;
+    transform-origin: left;
+    transition: transform .5s;
+    border:1px var(--dkclr) solid;
+}
+
+.door.change .door-handle{
+    transform: rotateZ(20deg);
+}
