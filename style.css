@@ -24,21 +24,83 @@ html{
     height: 100vh;
     display: grid;
     place-items: center;
-    border:1px black solid;
+    border:1px var(--dkclr) solid;
 }
 
 .house{
     background-color: var(--liclr);
     width: 110rem;
     height: 70rem;
-    border:1px black solid;
-    
+    position: relative;
+    perspective: 100rem;
+    border:1px var(--dkclr) solid;
 }
 
 .main-roof{
     background-color: var(--clr2);
     width: 110%;
     height: 30rem;
-    border:1px black solid;
+    position: absolute;
+    top:-10rem;
+    left:-5rem;
+    transform: rotateX(20deg);
+    border-radius: 1rem 1rem .5rem .5rem;
+    box-shadow: 0.5rem 1rem 2rem var(--dkclr);
+    border:1px var(--dkclr) solid;
+}
+
+.window{
+    width: 12rem;
+    height: 15rem;
+    background-color: var(--clr1);
+    border:3px var(--dkclr) solid;
+    position: absolute;
+}
+
+.window::before{
+    content: "";
+    width: 100%;
+    height: .4rem;
+    background-color: var(--dkclr);
+    position: absolute;
+    top:5rem;
+    left:0;
+}
+
+.window::after{
+    content: "";
+    height: 100%;
+    width: .4rem;
+    background-color: var(--dkclr);
+    position: absolute;
+    left:50%;
+    top:0;
+    transform: translateX(-50%);
+}
+
+.top-left-window{
+   top:22rem;
+   left: 10rem;
+   border:1px var(--dkclr) solid;
+   border-radius: 50% 50% 0 0;
+}
+
+.top-right-window{
+    top:22rem;
+    right: 10rem;
+    border:1px var(--dkclr) solid;
+    border-radius: 50% 50% 0 0;
+}
+
+.bottom-left-window{
+    top:43rem;
+    left: 10rem;
+    border:1px var(--dkclr) solid;
+}
+
+.bottom-right-window{
+    top:43rem;
+    right: 10rem;
+    border:1px var(--dkclr) solid;
 }
 
